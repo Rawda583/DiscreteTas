@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace project_1
+namespace project_2
 {
     internal class Program
     {
@@ -18,21 +16,25 @@ namespace project_1
             Console.WriteLine("please enter n2");
             int n2 = int.Parse(Console.ReadLine());
 
-            for (int i = n1; i <= n2; i++)
+            Console.WriteLine("the perfect numbers are:");
+
+            for(int i = n1; i<= n2; i++)
             {
-                int count = 0;
-                for (int j = 2; j <= 1; j++)
+                int j = 1;
+                int sum = 0;
+                while(j < i)
                 {
-                    if (i % j == 0)
-                        count++;
-                    break;
+                    if(i % j == 0)
+                    {
+                        sum = sum + j;
+                        j++;
+                    }
                 }
-                if (count == 0 && i != 1)
+                if(sum == 0)
                 {
-                    Console.WriteLine("\n" + i);
+                    Console.WriteLine("{0}", i);
                 }
             }
-            
         }
     }
 }
